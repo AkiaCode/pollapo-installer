@@ -1,4 +1,5 @@
 Write-Output "Installing Chocolatey"
+
 if (Get-Command -Name choco) {
     Write-Output "Chocolatey already exists"
 } else {
@@ -7,6 +8,7 @@ if (Get-Command -Name choco) {
     [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
     iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 }
+
 Write-Output "Installing Github cil (gh), Git, Deno"
 choco install gh git deno
 
@@ -28,15 +30,12 @@ if (Test-Path -Path (Join-Path (Get-Location) 'pbkit')) {
         git clone https://github.com/riiid/pbkit.git
     }
 
-    Write-Output "Installing pollapo"
-    deno install -n pollapo -f -A --unstable pbkit/cli/pollapo/entrypoint.ts
-
 } else {
     git clone https://github.com/riiid/pbkit.git
-    Write-Output "Installing pollapo"
-    deno install -n pollapo -f -A --unstable pbkit/cli/pollapo/entrypoint.ts
 }
 
+Write-Output "Installing pollapo"
+deno install -n pollapo -f -A --unstable pbkit/cli/pollapo/entrypoint.ts
 Remove-Item (Join-Path (Get-Location) 'pbkit') -Recurse -Force
 
 Write-Output  "`n`npollapo was installed successfully"
