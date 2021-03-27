@@ -1,7 +1,7 @@
 # pollapo-installer
 
 ```powershell
-iwr https://raw.githubusercontent.com/AkiaCode/pollapo-installer/master/pollapo.ps1 -useb | iex
+iwr https://raw.githubusercontent.com/AkiaCode/pollapo-installer/main/pollapo.ps1 -useb | iex
 ```
 
 * [Docs (ko)](https://github.com/riiid/pbkit/blob/main/docs/ko/README.md)
