@@ -36,7 +36,6 @@ if (Test-Path -Path (Join-Path (Get-Location) 'pbkit')) {
 
 Write-Output "Installing pollapo"
 deno install -n pollapo -f -A --unstable pbkit/cli/pollapo/entrypoint.ts
-Remove-Item (Join-Path (Get-Location) 'pbkit') -Recurse -Force
 
 Write-Output  "`n`npollapo was installed successfully"
 Write-Output  "Run 'pollapo --help' to get started"
